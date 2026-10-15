@@ -15,9 +15,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://raktsetu.vercel.app"),
   title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
   description:
     "Find nearby blood banks, post verified urgent blood requests, and connect with opt-in donors through masked, in-app contact.",
+  openGraph: {
+    type: "website",
+    url: "https://raktsetu.vercel.app",
+    siteName: "RaktSetu",
+    locale: "en_US",
+    title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
+    description:
+      "Find nearby blood banks, post verified urgent blood requests, and connect with opt-in donors through masked, in-app contact.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "RaktSetu — Privacy-first blood donor & recipient connect platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
+    description:
+      "Find nearby blood banks, post verified urgent blood requests, and connect with opt-in donors through masked, in-app contact.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
