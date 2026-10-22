@@ -10,6 +10,7 @@ const links = [
   { href: "/request", key: "nav.request" },
   { href: "/donate", key: "nav.donate" },
   { href: "/donors", key: "nav.donors" },
+  { href: "/compatibility", key: "nav.compatibility" },
   { href: "/about", key: "nav.about" },
   { href: "/privacy", key: "nav.privacy" },
 ];
