@@ -1,12 +1,24 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { t } from "@/lib/i18n";
 import BloodBankCard from "@/components/BloodBankCard";
+
+// Leaflet touches `window`, so the map is only ever loaded in the browser.
+const BloodBankMap = dynamic(() => import("@/components/BloodBankMap"), {
+  ssr: false,
+  loading: () => (
+    <p className="mt-6 text-sm text-gray-600" role="status">
+      {t("bloodBanks.mapLoading")}
+    </p>
+  ),
+});
 
 export default function BloodBankSearch({ banks }) {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+  const [view, setView] = useState("list");
 
   const states = useMemo(
     () => [...new Set(banks.map((b) => b.state))].sort(),
@@ -73,10 +85,34 @@ export default function BloodBankSearch({ banks }) {
         </div>
       </div>
 
+      <div
+        role="group"
+        aria-label={t("bloodBanks.viewToggleLabel")}
+        className="mt-4 inline-flex overflow-hidden rounded-md border border-gray-300"
+      >
+        {["list", "map"].map((mode) => (
+          <button
+            key={mode}
+            type="button"
+            aria-pressed={view === mode}
+            onClick={() => setView(mode)}
+            className={`px-4 py-2 text-sm font-medium focus:outline-2 focus:outline-offset-2 focus:outline-brand ${
+              view === mode
+                ? "bg-brand text-white"
+                : "bg-white text-gray-800 hover:bg-gray-50"
+            }`}
+          >
+            {t(mode === "list" ? "bloodBanks.listView" : "bloodBanks.mapView")}
+          </button>
+        ))}
+      </div>
+
       {filtered.length === 0 ? (
         <p className="mt-6 text-sm text-gray-600">
           {t("bloodBanks.noResults")}
         </p>
+      ) : view === "map" ? (
+        <BloodBankMap banks={filtered} />
       ) : (
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((bank) => (

@@ -6,7 +6,9 @@
     "city": "Bengaluru",
     "address": "123 Demo Main Road, Bengaluru",
     "phone": "XXXXXXXXXX",
-    "hours": "9:00 AM - 6:00 PM"
+    "hours": "9:00 AM - 6:00 PM",
+    "lat": 12.9716,
+    "lng": 77.5946
   },
   {
     "id": "demo-bank-2",
@@ -15,7 +17,9 @@
     "city": "Mysuru",
     "address": "45 Demo Cross Street, Mysuru",
     "phone": "XXXXXXXXXX",
-    "hours": "9:00 AM - 5:00 PM"
+    "hours": "9:00 AM - 5:00 PM",
+    "lat": 12.2958,
+    "lng": 76.6394
   },
   {
     "id": "demo-bank-3",
@@ -24,7 +28,9 @@
     "city": "Mumbai",
     "address": "7 Demo Marine Drive, Mumbai",
     "phone": "XXXXXXXXXX",
-    "hours": "24 hours"
+    "hours": "24 hours",
+    "lat": 18.9442,
+    "lng": 72.8235
   },
   {
     "id": "demo-bank-4",
@@ -33,7 +39,9 @@
     "city": "Pune",
     "address": "88 Demo FC Road, Pune",
     "phone": "XXXXXXXXXX",
-    "hours": "8:00 AM - 8:00 PM"
+    "hours": "8:00 AM - 8:00 PM",
+    "lat": 18.5204,
+    "lng": 73.8567
   },
   {
     "id": "demo-bank-5",

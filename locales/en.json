@@ -74,7 +74,16 @@
     "allCities": "All cities",
     "noResults": "No demo blood banks match these filters.",
     "demoBadge": "Demo",
-    "hoursLabel": "Hours"
+    "hoursLabel": "Hours",
+    "viewToggleLabel": "Choose how to view blood banks",
+    "listView": "List view",
+    "mapView": "Map view",
+    "mapLabel": "Map of demo blood banks",
+    "mapLoading": "Loading map...",
+    "mapNoCoordinates": "None of the matching demo blood banks have map locations yet.",
+    "mapSkipped": "{{count}} matching bank(s) are not shown on the map because they have no coordinates. Switch to list view to see them.",
+    "mapTilesError": "Map tiles could not be loaded. You may be offline. Marker details are still available, or switch to list view.",
+    "mapAttribution": "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
   },
   "request": {
     "title": "Post an Urgent Blood Request",
