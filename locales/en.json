@@ -113,7 +113,7 @@
       "units": "Please enter at least 1 unit.",
       "hospitalName": "Hospital name is required.",
       "city": "City is required.",
-      "neededBy": "Please choose a needed-by date in the future."
+      "neededBy": "Please choose today or a future date — past dates aren't allowed."
     }
   },
   "donate": {
