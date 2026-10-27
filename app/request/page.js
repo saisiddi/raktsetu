@@ -30,7 +30,7 @@ function validateField(field, value) {
       if (!value.trim()) return t("request.errors.city");
       break;
     case "neededBy":
-      if (!value || new Date(value) <= new Date().setHours(0, 0, 0, 0))
+      if (!value || value < new Date().toLocaleDateString("en-CA"))
         return t("request.errors.neededBy");
       break;
   }
