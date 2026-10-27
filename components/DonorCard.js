@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { t } from "@/lib/i18n";
+import ReportButton from "./ReportButton";
 
 export default function DonorCard({ donor }) {
   const [requested, setRequested] = useState(false);
@@ -26,16 +27,23 @@ export default function DonorCard({ donor }) {
       <p className="mt-1 text-sm text-gray-700">{donor.bloodGroup}</p>
       <p className="mt-1 text-sm text-gray-600">{donor.city}</p>
 
-      {/* aria-label provides distinguishing donor context for screen readers */}
-      <button
-        type="button"
-        disabled={!donor.available}
-        onClick={() => setRequested(true)}
-        aria-label={t("donors.requestContactFor", { name: donor.firstName })}
-        className="mt-3 w-full rounded-md bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark focus:outline-2 focus:outline-offset-2 focus:outline-brand-dark disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
-      >
-        {t("donors.requestContact")}
-      </button>
+      <div className="mt-3 flex items-center justify-between gap-2">
+        {/* aria-label provides distinguishing donor context for screen readers */}
+        <button
+          type="button"
+          disabled={!donor.available}
+          onClick={() => setRequested(true)}
+          aria-label={t("donors.requestContactFor", { name: donor.firstName })}
+          className="flex-1 rounded-md bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark focus:outline-2 focus:outline-offset-2 focus:outline-brand-dark disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
+        >
+          {t("donors.requestContact")}
+        </button>
+        <ReportButton
+          namespace="donors"
+          targetType="donor"
+          targetId={donor.id}
+        />
+      </div>
 
       {requested && (
         <p role="status" className="mt-2 text-sm text-brand-dark">

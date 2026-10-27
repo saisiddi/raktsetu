@@ -114,7 +114,16 @@
       "hospitalName": "Hospital name is required.",
       "city": "City is required.",
       "neededBy": "Please choose a needed-by date in the future."
-    }
+    },
+    "report": "Report",
+    "reportScam": "Scam",
+    "reportSpam": "Spam",
+    "reportAbuse": "Abuse",
+    "reportDetails": "Details (optional)",
+    "reportSubmit": "Submit Report",
+    "reportDemoNotice": "Demo mode — reports aren't sent yet.",
+    "cancel": "Cancel",
+    "reportReason": "Reason"
   },
   "donate": {
     "title": "Become a Donor",
@@ -146,7 +155,16 @@
     "demoModeNotice": "Demo mode — contact requests aren't sent yet.",
     "emptyTitle": "No donors listed yet",
     "emptyMessage": "Donors appear here once they opt in. In the meantime, you can look up blood banks near you.",
-    "emptyAction": "Browse blood banks"
+    "emptyAction": "Browse blood banks",
+    "report": "Report",
+    "reportScam": "Scam",
+    "reportSpam": "Spam",
+    "reportAbuse": "Abuse",
+    "reportDetails": "Details (optional)",
+    "reportSubmit": "Submit Report",
+    "reportDemoNotice": "Demo mode — reports aren't sent yet.",
+    "cancel": "Cancel",
+    "reportReason": "Reason"
   },
   "bloodCompatibility": {
     "title": "Blood Group Compatibility",
