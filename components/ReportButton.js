@@ -1,35 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import { t } from "@/lib/i18n";
 
 const REASONS = [
-  { value: "scam", label: "reportScam" },
-  { value: "spam", label: "reportSpam" },
-  { value: "abuse", label: "reportAbuse" },
+  { value: "scam", label: "report.scam" },
+  { value: "spam", label: "report.spam" },
+  { value: "abuse", label: "report.abuse" },
 ];
 
-export default function ReportButton({
-  namespace = "donors",
-  targetType,
-  targetId,
-}) {
+export default function ReportButton({ targetLabel }) {
   const [open, setOpen] = useState(false);
   const [reason, setReason] = useState("scam");
   const [details, setDetails] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const detailsId = useId();
+  const fieldsetId = useId();
 
   function handleSubmit(e) {
     e.preventDefault();
     setSubmitted(true);
   }
 
-  const tk = (key) => t(`${namespace}.${key}`);
-
   if (submitted) {
     return (
       <p role="status" className="text-sm font-medium text-brand-dark">
-        {tk("reportDemoNotice")}
+        {t("report.demoNotice")}
       </p>
     );
   }
@@ -39,26 +35,30 @@ export default function ReportButton({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        aria-label={tk("report")}
+        aria-label={
+          targetLabel
+            ? `${t("report.label")} ${targetLabel}`
+            : t("report.label")
+        }
         aria-expanded={open}
         className="text-sm text-gray-600 hover:text-brand-dark underline"
       >
-        {tk("report")}
+        {t("report.label")}
       </button>
 
       {open && (
         <form
           onSubmit={handleSubmit}
-          className="mt-2 space-y-3 p-3 border border-gray-200 rounded-md bg-gray-50"
+          className="mt-3 w-full space-y-3 p-3 border border-gray-200 rounded-md bg-gray-50"
         >
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              {tk("reportReason")}
-            </label>
+          <fieldset id={fieldsetId}>
+            <legend className="text-sm font-medium text-gray-700">
+              {t("report.reason")}
+            </legend>
             <div
               className="mt-1 space-y-1"
               role="radiogroup"
-              aria-label={tk("reportReason")}
+              aria-labelledby={fieldsetId}
             >
               {REASONS.map((r) => (
                 <label
@@ -73,21 +73,21 @@ export default function ReportButton({
                     onChange={() => setReason(r.value)}
                     className="text-brand focus:ring-brand"
                   />
-                  <span className="text-sm text-gray-700">{tk(r.label)}</span>
+                  <span className="text-sm text-gray-700">{t(r.label)}</span>
                 </label>
               ))}
             </div>
-          </div>
+          </fieldset>
 
           <div>
             <label
-              htmlFor="reportDetails"
+              htmlFor={detailsId}
               className="block text-sm font-medium text-gray-700"
             >
-              {tk("reportDetails")}
+              {t("report.details")}
             </label>
             <textarea
-              id="reportDetails"
+              id={detailsId}
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               rows={3}
@@ -100,14 +100,14 @@ export default function ReportButton({
               type="submit"
               className="rounded-md bg-brand px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-dark focus:outline-2 focus:outline-offset-2 focus:outline-brand-dark"
             >
-              {tk("reportSubmit")}
+              {t("report.submit")}
             </button>
             <button
               type="button"
               onClick={() => setOpen(false)}
               className="rounded-md px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-2 focus:outline-offset-2 focus:outline-brand"
             >
-              {tk("cancel")}
+              {t("report.cancel")}
             </button>
           </div>
         </form>

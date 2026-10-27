@@ -38,12 +38,9 @@ export default function DonorCard({ donor }) {
         >
           {t("donors.requestContact")}
         </button>
-        <ReportButton
-          namespace="donors"
-          targetType="donor"
-          targetId={donor.id}
-        />
       </div>
+
+      <ReportButton targetLabel={donor.firstName} />
 
       {requested && (
         <p role="status" className="mt-2 text-sm text-brand-dark">

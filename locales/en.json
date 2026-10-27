@@ -93,6 +93,17 @@
     "mapTilesError": "Map tiles could not be loaded. You may be offline. Marker details are still available, or switch to list view.",
     "mapAttribution": "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
   },
+  "report": {
+    "label": "Report",
+    "reason": "Reason",
+    "scam": "Scam",
+    "spam": "Spam",
+    "abuse": "Abuse",
+    "details": "Details (optional)",
+    "submit": "Submit Report",
+    "demoNotice": "Demo mode — reports aren't sent yet.",
+    "cancel": "Cancel"
+  },
   "request": {
     "title": "Post an Urgent Blood Request",
     "subtitle": "Fill in verified details. Your request automatically expires after the time shown below.",
@@ -114,16 +125,7 @@
       "hospitalName": "Hospital name is required.",
       "city": "City is required.",
       "neededBy": "Please choose a needed-by date in the future."
-    },
-    "report": "Report",
-    "reportScam": "Scam",
-    "reportSpam": "Spam",
-    "reportAbuse": "Abuse",
-    "reportDetails": "Details (optional)",
-    "reportSubmit": "Submit Report",
-    "reportDemoNotice": "Demo mode — reports aren't sent yet.",
-    "cancel": "Cancel",
-    "reportReason": "Reason"
+    }
   },
   "donate": {
     "title": "Become a Donor",
@@ -155,16 +157,7 @@
     "demoModeNotice": "Demo mode — contact requests aren't sent yet.",
     "emptyTitle": "No donors listed yet",
     "emptyMessage": "Donors appear here once they opt in. In the meantime, you can look up blood banks near you.",
-    "emptyAction": "Browse blood banks",
-    "report": "Report",
-    "reportScam": "Scam",
-    "reportSpam": "Spam",
-    "reportAbuse": "Abuse",
-    "reportDetails": "Details (optional)",
-    "reportSubmit": "Submit Report",
-    "reportDemoNotice": "Demo mode — reports aren't sent yet.",
-    "cancel": "Cancel",
-    "reportReason": "Reason"
+    "emptyAction": "Browse blood banks"
   },
   "bloodCompatibility": {
     "title": "Blood Group Compatibility",

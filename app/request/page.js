@@ -67,7 +67,7 @@ export default function RequestPage() {
       </div>
 
       <div className="mt-4 flex justify-end">
-        <ReportButton namespace="request" targetType="request" targetId="new" />
+        <ReportButton targetLabel={t("request.title")} />
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
