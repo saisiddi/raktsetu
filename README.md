@@ -44,6 +44,7 @@
 - [Quick start](#quick-start)
 - [Project structure](#project-structure)
 - [How to contribute](#how-to-contribute)
+- [Community](#community)
 - [Roadmap](#roadmap)
 - [FAQ](#faq)
 - [Maintainer](#maintainer)
@@ -238,6 +239,28 @@ RaktSetu is a **beginner-friendly** project built for Nexus Spring of Code, a 45
 3. Open a **draft PR** early so maintainers can see your direction; fill in the [PR template](./.github/pull_request_template.md), then click **"Ready for review"** when it's done.
 
 The full process — commit conventions, branch naming, what gets closed as spam — is in [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Community
+
+<p>
+  <a href="https://github.com/saisiddi/raktsetu/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/saisiddi/raktsetu?color=c62828"></a>
+  <a href="https://github.com/saisiddi/raktsetu/pulls?q=is%3Apr+is%3Amerged"><img alt="Merged PRs" src="https://img.shields.io/github/issues-pr-closed/saisiddi/raktsetu?color=c62828&label=PRs%20closed"></a>
+  <a href="https://github.com/saisiddi/raktsetu/forks"><img alt="Forks" src="https://img.shields.io/github/forks/saisiddi/raktsetu?color=c62828"></a>
+</p>
+
+Snapshot as of 27 October 2026, about three weeks after launch:
+
+| What                                                         | Count |
+| ------------------------------------------------------------ | ----- |
+| Contributors who commented, claimed an issue, or opened a PR | 9     |
+| Contributor pull requests opened                             | 7     |
+| Contributor pull requests merged (the rest are in review)    | 5     |
+| Starter issues claimed and assigned (of 25)                  | 10    |
+| Starter issues already closed                                | 5     |
+
+Thank you to everyone who has shown up. If you want to join them, pick a [`good first issue`](https://github.com/saisiddi/raktsetu/labels/good%20first%20issue) and comment to get assigned.
+
+<a href="https://github.com/saisiddi/raktsetu/graphs/contributors"><img alt="Contributors" src="https://contrib.rocks/image?repo=saisiddi/raktsetu"></a>
 
 ## Roadmap
 
