@@ -55,7 +55,10 @@ export default function SignInPage() {
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
             {t("auth.fields.email")}
           </label>
           <input
@@ -69,7 +72,10 @@ export default function SignInPage() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700"
+          >
             {t("auth.fields.password")}
           </label>
           <input
