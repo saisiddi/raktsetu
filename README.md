@@ -172,6 +172,32 @@ npm run format    # Prettier
 npm run build     # production build
 ```
 
+### Enable Supabase auth
+
+To integrate Supabase:
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. In the project dashboard's **Get Connected** section, click on **Framework**. In the pop-up that appears, keep the default selections and copy the `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` values it shows into your .env.local file.
+
+3. Alternatively, in the project dashboard, open **Project Settings → API Keys** and copy the project URL and the **publishable key** (`sb_publishable_...`). Older projects may call this the `anon` key; it goes in the same variable.
+
+4. Copy the example env file and fill in the two values:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=https://<your-project>.supabase.co
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+   ```
+
+Notes:
+
+- Only the publishable key belongs in the app. Secret keys (formerly `service_role`) bypass Row Level Security and must never go in a `NEXT_PUBLIC_` variable or client-side code.
+- Supabase's built-in email sender is heavily rate-limited, so repeated test sign-ups can fail with `over_email_send_rate_limit` (HTTP 429). For local testing, turn off "Confirm email" for the Email provider in the project's Authentication settings, or configure custom SMTP.
+- Use throwaway accounts when testing, not real personal data.
+
 ## Project structure
 
 ```
