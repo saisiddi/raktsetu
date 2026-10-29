@@ -17,7 +17,8 @@
     "about": "About",
     "privacy": "Privacy",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "signIn": "Sign In"
   },
   "notFound": {
     "title": "Page not found",
@@ -161,6 +162,36 @@
     "maintainerBody": "RaktSetu is maintained by Sai (github.com/saisiddi) as part of Nexus Spring of Code, a 45-day student open-source program.",
     "contributeTitle": "Contribute",
     "contributeBody": "RaktSetu welcomes beginners from every domain — frontend, backend, UI/UX, docs, translation and testing. See CONTRIBUTING.md in the repository to get started."
+  },
+  "auth": {
+    "comingSoon": "Coming in Phase 2. Mark your calendars.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password"
+    },
+    "signUp": {
+      "title": "Create an account",
+      "signUp": "Sign Up",
+      "submit": "Sign up",
+      "submitting": "Creating account",
+      "success": "Back to Signin.",
+      "haveAccount": "Already have an account?",
+      "signInLink": "Sign in"
+    },
+    "signIn": {
+      "title": "Sign in to your account",
+      "signIn": "Sign In",
+      "submit": "Sign in",
+      "submitting": "Signing in",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up"
+    },
+    "errors": {
+      "missingFields": "Please fill in all fields.",
+      "signUpFailed": "We couldn't create your account. Please try again.",
+      "signInFailed": "Incorrect email or password."
+    }
   },
   "privacy": {
     "title": "Privacy Principles",

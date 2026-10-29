@@ -6,6 +6,7 @@ import { t } from "@/lib/i18n";
 
 const links = [
   { href: "/", key: "nav.home" },
+  { href: "/sign-in", key: "nav.signIn" },
   { href: "/blood-banks", key: "nav.bloodBanks" },
   { href: "/request", key: "nav.request" },
   { href: "/donate", key: "nav.donate" },
