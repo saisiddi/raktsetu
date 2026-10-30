@@ -2,6 +2,8 @@ import { t } from "@/lib/i18n";
 
 export const metadata = {
   title: "About — RaktSetu",
+  description:
+    "Learn about RaktSetu, an open-source, privacy-first platform connecting blood donors and recipients across India.",
 };
 
 export default function AboutPage() {
