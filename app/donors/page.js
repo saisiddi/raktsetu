@@ -5,6 +5,8 @@ import EmptyState from "@/components/EmptyState";
 
 export const metadata = {
   title: "Donors — RaktSetu",
+  description:
+    "Connect with verified volunteer blood donors through privacy-protected, masked contact.",
 };
 
 export default function DonorsPage() {

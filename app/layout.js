@@ -3,6 +3,7 @@ import "./globals.css";
 import DemoBanner from "@/components/DemoBanner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { BASE_URL } from "@/lib/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,13 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://raktsetu.vercel.app"),
+  metadataBase: new URL(BASE_URL),
   title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
   description:
     "Find nearby blood banks, post verified urgent blood requests, and connect with opt-in donors through masked, in-app contact.",
   openGraph: {
     type: "website",
-    url: "https://raktsetu.vercel.app",
+    url: BASE_URL,
     siteName: "RaktSetu",
     locale: "en_US",
     title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
