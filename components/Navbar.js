@@ -15,6 +15,20 @@ const links = [
   { href: "/privacy", key: "nav.privacy" },
 ];
 
+// The current theme lives on <html data-theme>, set before paint by the
+// script in app/layout.js, so the toggle reads it from the DOM instead of
+// React state (which would mismatch during hydration).
+function toggleTheme() {
+  const root = document.documentElement;
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try {
+    localStorage.setItem("theme", next);
+  } catch {
+    // Storage blocked (private mode etc.): theme still applies for this visit.
+  }
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -30,6 +44,21 @@ export default function Navbar() {
 
         <button
           type="button"
+          onClick={toggleTheme}
+          aria-label={t("nav.toggleTheme")}
+          title={t("nav.toggleTheme")}
+          className="ml-auto rounded-md border border-gray-300 px-2.5 py-2 text-sm font-medium focus:outline-2 focus:outline-offset-2 focus:outline-brand sm:order-last sm:ml-0"
+        >
+          <span aria-hidden="true" className="dark:hidden">
+            ☾
+          </span>
+          <span aria-hidden="true" className="hidden dark:inline">
+            ☀
+          </span>
+        </button>
+
+        <button
+          type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="primary-nav-links"
@@ -42,7 +71,7 @@ export default function Navbar() {
           id="primary-nav-links"
           className={`${
             open ? "flex" : "hidden"
-          } absolute left-0 top-full z-10 w-full flex-col gap-1 border-b border-gray-200 bg-white px-4 py-2 sm:static sm:z-auto sm:flex sm:w-auto sm:flex-row sm:items-center sm:gap-4 sm:border-0 sm:bg-transparent sm:p-0`}
+          } absolute left-0 top-full z-10 w-full flex-col gap-1 border-b border-gray-200 bg-white px-4 py-2 sm:static sm:z-auto sm:flex sm:w-auto sm:flex-row sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0`}
         >
           {links.map((link) => (
             <li key={link.href}>
