@@ -3,6 +3,8 @@ import { REQUEST_EXPIRY_HOURS, DONATION_GAP_DAYS } from "@/lib/config";
 
 export const metadata = {
   title: "Privacy — RaktSetu",
+  description:
+    "Read about RaktSetu's privacy principles, masked contact model, and data protection practices.",
 };
 
 export default function PrivacyPage() {

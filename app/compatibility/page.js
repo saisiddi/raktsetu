@@ -3,6 +3,8 @@ import { BLOOD_COMPATIBILITY } from "@/lib/bloodCompatibility";
 
 export const metadata = {
   title: "Blood Group Compatibility — RaktSetu",
+  description:
+    "Check red blood cell compatibility across ABO and Rh blood groups for donors and recipients.",
 };
 
 function GroupList({ groups }) {

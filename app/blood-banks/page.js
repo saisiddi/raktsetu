@@ -4,6 +4,8 @@ import BloodBankSearch from "@/components/BloodBankSearch";
 
 export const metadata = {
   title: "Blood Banks — RaktSetu",
+  description:
+    "Search verified blood banks across India by state and city, view locations on map, and check real-time stock.",
 };
 
 export default function BloodBanksPage() {

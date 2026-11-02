@@ -4,6 +4,12 @@ import { REQUEST_EXPIRY_HOURS } from "@/lib/config";
 import FeatureCard from "@/components/FeatureCard";
 import AntiScamBanner from "@/components/AntiScamBanner";
 
+export const metadata = {
+  title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
+  description:
+    "Find nearby blood banks, post verified urgent blood requests, and connect with opt-in donors through masked, in-app contact.",
+};
+
 export default function Home() {
   const features = t("home.features.items");
   const steps = t("home.howItWorks.steps", { hours: REQUEST_EXPIRY_HOURS });
