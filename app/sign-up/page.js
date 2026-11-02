@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { t } from "@/lib/i18n";
-import { supabaseConfig, isSupabaseConfigured } from "@/lib/supabaseClient";
+import { supabase, isSupabaseConfigured } from "@/lib/supabaseClient";
 
 const inputClass =
   "mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand";
@@ -34,7 +34,7 @@ export default function SignUp() {
     }
 
     setIsSubmitting(true);
-    const { error } = await supabaseConfig.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: email.trim(),
       password,
       options: { data: { name: name.trim() } },
