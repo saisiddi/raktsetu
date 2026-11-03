@@ -17,8 +17,7 @@
     "about": "About",
     "privacy": "Privacy",
     "menu": "Menu",
-    "close": "Close",
-    "signIn": "Sign In"
+    "close": "Close"
   },
   "notFound": {
     "title": "Page not found",
@@ -175,7 +174,7 @@
       "signUp": "Sign Up",
       "submit": "Sign up",
       "submitting": "Creating account",
-      "success": "Back to Signin.",
+      "success": "Account created successfully. Please confirm your email, then sign back in.",
       "haveAccount": "Already have an account?",
       "signInLink": "Sign in"
     },
