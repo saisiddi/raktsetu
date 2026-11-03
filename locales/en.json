@@ -226,5 +226,21 @@
   "footer": {
     "builtFor": "Built for Nexus Spring of Code",
     "repoLink": "View on GitHub"
+  },
+  "report": {
+    "button": "Report",
+    "labelFor": "Report {{name}}",
+    "requestTarget": "this request",
+    "reasonLabel": "Reason for reporting",
+    "reasons": {
+      "scam": "Scam — asking for money or fake urgency",
+      "spam": "Spam — irrelevant or repeated content",
+      "abuse": "Abuse — harassment or inappropriate behavior"
+    },
+    "detailsLabel": "Additional details (optional)",
+    "detailsPlaceholder": "Describe what happened...",
+    "submit": "Submit report",
+    "cancel": "Cancel",
+    "demoModeNotice": "Demo mode — reports aren't sent yet."
   }
 }

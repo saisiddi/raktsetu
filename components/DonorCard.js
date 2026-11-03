@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { t } from "@/lib/i18n";
+import ReportButton from "./ReportButton";
 
 export default function DonorCard({ donor }) {
   const [requested, setRequested] = useState(false);
@@ -36,6 +37,11 @@ export default function DonorCard({ donor }) {
       >
         {t("donors.requestContact")}
       </button>
+
+      <ReportButton
+        targetName={donor.firstName}
+        targetLabel={t("donors.requestContactFor", { name: donor.firstName })}
+      />
 
       {requested && (
         <p role="status" className="mt-2 text-sm text-brand-dark">

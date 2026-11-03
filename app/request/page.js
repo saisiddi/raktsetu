@@ -4,6 +4,7 @@ import { useState } from "react";
 import { t } from "@/lib/i18n";
 import { REQUEST_EXPIRY_HOURS } from "@/lib/config";
 import AntiScamBanner from "@/components/AntiScamBanner";
+import ReportButton from "@/components/ReportButton";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -96,6 +97,15 @@ export default function RequestPage() {
         <AntiScamBanner
           title={t("home.antiScam.title")}
           body={t("request.antiScamWarning")}
+        />
+      </div>
+
+      <div className="mt-4 flex justify-end">
+        <ReportButton
+          targetName={t("report.requestTarget")}
+          targetLabel={t("report.labelFor", {
+            name: t("report.requestTarget"),
+          })}
         />
       </div>
 
