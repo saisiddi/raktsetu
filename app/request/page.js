@@ -101,12 +101,7 @@ export default function RequestPage() {
       </div>
 
       <div className="mt-4 flex justify-end">
-        <ReportButton
-          targetName={t("report.requestTarget")}
-          targetLabel={t("report.labelFor", {
-            name: t("report.requestTarget"),
-          })}
-        />
+        <ReportButton targetName={t("report.requestTarget")} />
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>

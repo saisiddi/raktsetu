@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { t } from "@/lib/i18n";
 
-export default function ReportButton({ targetName, targetLabel }) {
+export default function ReportButton({ targetName }) {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [reason, setReason] = useState("");

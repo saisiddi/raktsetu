@@ -38,10 +38,7 @@ export default function DonorCard({ donor }) {
         {t("donors.requestContact")}
       </button>
 
-      <ReportButton
-        targetName={donor.firstName}
-        targetLabel={t("donors.requestContactFor", { name: donor.firstName })}
-      />
+      <ReportButton targetName={donor.firstName} />
 
       {requested && (
         <p role="status" className="mt-2 text-sm text-brand-dark">
