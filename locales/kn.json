@@ -193,9 +193,8 @@
       }
     ]
   },
-"footer": {
-    "builtFor": "Nexus Spring of Code ಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ",
+  "footer": {
+    "builtFor": "Nexus Spring of Code ಗಾಗಿ নির্মಿಸಲಾಗಿದೆ",
     "repoLink": "GitHub ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ"
   }
-}
 }
