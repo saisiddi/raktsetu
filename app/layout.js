@@ -48,12 +48,20 @@ export const metadata = {
   },
 };
 
+// Runs before first paint so a saved dark preference doesn't flash light.
+const themeScript = `try{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      data-theme="light"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-full flex-col bg-white text-gray-900">
         <DemoBanner />
         <Navbar />
