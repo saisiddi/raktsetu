@@ -165,7 +165,7 @@
     "cards": {
       "generalHealth": {
         "title": "General health",
-        "description": "Donors are generally expected to be in good health and feel well on the day of donation. Inform the blood bank staff if you are unwell or recovering from an illness. Be sure to get ample sleep!"
+        "description": "Donors are generally expected to be in good health and feel well on the day of donation. Inform the blood bank staff if you are unwell or recovering from an illness."
       },
       "medicalHistory": {
         "title": "Medical history and medication",
