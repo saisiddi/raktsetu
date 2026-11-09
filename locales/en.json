@@ -155,6 +155,50 @@
     "canDonateToHeader": "Can Donate To",
     "canReceiveFromHeader": "Can Receive From"
   },
+  "eligibility": {
+    "title": "Blood Donation Eligibility",
+    "introduction": "Wondering whether you can donate blood? Here are some general considerations to help you understand the donor screening process.",
+    "disclaimerTitle": "Important",
+    "disclaimer": "This information is for general awareness only and is not medical advice. RaktSetu does not determine donor eligibility. Please consult a doctor or your nearest blood bank for an individual assessment before donating blood.",
+    "guidanceTitle": "General eligibility considerations",
+    "guidanceIntroduction": "Blood bank professionals may consider several factors when assessing a prospective donor:",
+    "cards": {
+      "generalHealth": {
+        "title": "General health",
+        "description": "Donors are generally expected to be in good health and feel well on the day of donation. Inform the blood bank staff if you are unwell or recovering from an illness."
+      },
+      "medicalHistory": {
+        "title": "Medical history and medication",
+        "description": "Certain medical conditions, treatments, and medications may affect eligibility. Share your medical history and current medications honestly during screening."
+      },
+      "procedures": {
+        "title": "Recent procedures and travel",
+        "description": "Recent surgeries, medical procedures, vaccinations, or travel may be relevant to donor screening. Inform the blood bank staff about these circumstances."
+      },
+      "previousDonations": {
+        "title": "Previous donations",
+        "description": "Your previous donation dates and the type of donation may affect your eligibility. Let the blood bank staff know about your donation history."
+      }
+    },
+    "screeningTitle": "Before donating",
+    "screeningDescription": "Blood bank professionals assess prospective donors through questions about their health and medical history, physical checks, and relevant screening tests. They determine whether donation is appropriate based on the applicable guidelines and individual circumstances.",
+    "resourcesTitle": "Official resources",
+    "resourcesDescription": "For further information, refer to official blood donation resources.",
+    "resources": {
+      "eraktkosh": {
+        "name": "e-RaktKosh — Government of India",
+        "url": "https://eraktkosh.mohfw.gov.in/",
+        "description": "Government of India's blood bank management portal, providing information about blood banks and blood donation services."
+      },
+      "indianredcross": {
+        "name": "Indian Red Cross Society",
+        "url": "https://indianredcross.org/",
+        "description": "A humanitarian organisation supporting blood donation initiatives and blood bank services across India."
+      }
+    },
+    "finalNote": "Unsure about your eligibility? Do not rely solely on online information. Consult a doctor or contact your nearest blood bank for guidance."
+  },
+
   "about": {
     "title": "About RaktSetu",
     "mission": "RaktSetu exists to make finding blood in an emergency faster and safer, without exposing anyone's personal information or opening the door to scams.",
