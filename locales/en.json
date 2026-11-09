@@ -18,7 +18,8 @@
     "privacy": "Privacy",
     "menu": "Menu",
     "close": "Close",
-    "toggleTheme": "Toggle dark theme"
+    "toggleTheme": "Toggle dark theme",
+    "skipToMain": "Skip to main content"
   },
   "notFound": {
     "title": "Page not found",
