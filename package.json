@@ -20,7 +20,7 @@
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "eslint": "^10",
-    "eslint-config-next": "^16.4.3",
+    "eslint-config-next": "^16.4.5",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.10",
     "tailwindcss": "^4"
