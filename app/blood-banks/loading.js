@@ -22,7 +22,7 @@ export default function Loading() {
       role="status"
       aria-busy="true"
     >
-      <span className="sr-only">Loading blood banks...</span>
+      <span className="sr-only">{t("bloodBanks.loading")}</span>
 
       <h1 className="text-3xl font-bold text-gray-900">
         {t("bloodBanks.title")}

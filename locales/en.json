@@ -71,6 +71,7 @@
   "bloodBanks": {
     "title": "Find Blood Banks & Donation Camps",
     "subtitle": "Demo listings below are for interface preview only. For real-time official blood stock, always check e-RaktKosh.",
+    "loading": "Loading blood banks...",
     "eraktkoshCardTitle": "Need live blood stock data?",
     "eraktkoshCardBody": "RaktSetu links out to the Government of India's official e-RaktKosh portal instead of scraping blood bank stock. It's the authoritative, real-time source.",
     "eraktkoshCardCta": "Open e-RaktKosh",
@@ -139,6 +140,7 @@
   "donors": {
     "title": "Demo Donors",
     "subtitle": "Only first name, blood group, city and availability are ever shown. Phone numbers are never public.",
+    "loading": "Loading donors...",
     "availableBadge": "Available",
     "unavailableBadge": "Paused",
     "requestContact": "Request Contact",
