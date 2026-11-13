@@ -132,10 +132,17 @@ RaktSetu is built around six rules that are **not up for debate**. The full deta
 
 ## Screenshots
 
-<!-- Add screenshots here once the UI is deployed, e.g.: -->
-<!-- ![Home page](./docs/screenshots/home.png) -->
+![Home page: hero section and the three main actions](./docs/screenshots/home.webp)
 
-_Screenshots coming soon — the [live demo](https://raktsetu.vercel.app) is the best preview for now._
+![Blood banks page in map view, with demo blood banks marked on the map](./docs/screenshots/blood-banks-map.webp)
+
+![Urgent blood request form](./docs/screenshots/request-blood.webp)
+
+![Demo donors list showing first name, blood group, city and availability](./docs/screenshots/donors.webp)
+
+![Blood group compatibility chart](./docs/screenshots/blood-compatibility.webp)
+
+![Blood banks page on a phone-sized screen](./docs/screenshots/mobile-blood-banks.webp)
 
 ## Tech stack
 
