@@ -20,7 +20,7 @@
 
 <p align="center">
   <!-- Update this once deployed: -->
-  <a href="https://raktsetu.vercel.app"><strong>Live Demo</strong></a> ·
+  <a href="https://raktsetu-three.vercel.app"><strong>Live Demo</strong></a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="./CONTRIBUTING.md">Contribute</a> ·
   <a href="./docs/ROADMAP.md">Roadmap</a> ·
