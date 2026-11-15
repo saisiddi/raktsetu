@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { t } from "@/lib/i18n";
 import { REQUEST_EXPIRY_HOURS } from "@/lib/config";
 import AntiScamBanner from "@/components/AntiScamBanner";
@@ -88,6 +89,16 @@ export default function RequestPage() {
     <div className="mx-auto max-w-2xl px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900">{t("request.title")}</h1>
       <p className="mt-2 text-gray-700">{t("request.subtitle")}</p>
+
+      <p className="mt-2 text-sm text-gray-700">
+        {t("request.emergencyNote")}{" "}
+        <Link
+          href="/emergency"
+          className="font-medium text-brand-dark underline focus:outline-2 focus:outline-offset-2 focus:outline-brand"
+        >
+          {t("request.emergencyLink")}
+        </Link>
+      </p>
 
       <p className="mt-4 text-sm font-medium text-gray-700">
         {t("request.expiryNotice", { hours: REQUEST_EXPIRY_HOURS })}
