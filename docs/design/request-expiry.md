@@ -33,6 +33,7 @@ We never store an expired status. Whenever a request is read, we compare its `cr
 **Good:** no infrastructure, no extra writes, always accurate to the moment of the read, and trivial to unit test.
 
 **Not so good:**
+
 - Every read path has to apply the check, and one that forgets will show expired requests.
 - List queries and counts need the same rule in SQL (for example `created_at > now() - interval '48 hours'`). That means the rule lives in two places, JS and SQL, and they have to stay in sync.
 - Expired rows stay in the database unless we clean them up separately.
@@ -40,14 +41,14 @@ We never store an expired status. Whenever a request is read, we compare its `cr
 
 ## Side by side
 
-| | Scheduled job | Computed on read |
-|---|---|---|
-| Needs a scheduler | Yes | No |
-| Extra DB writes | Yes | No |
-| Accurate at read time | Only as fresh as the last run | Always |
-| Stored expired status | Yes | No |
-| Can trigger notifications | Yes | No |
-| Complexity | Higher | Lower |
+|                           | Scheduled job                 | Computed on read |
+| ------------------------- | ----------------------------- | ---------------- |
+| Needs a scheduler         | Yes                           | No               |
+| Extra DB writes           | Yes                           | No               |
+| Accurate at read time     | Only as fresh as the last run | Always           |
+| Stored expired status     | Yes                           | No               |
+| Can trigger notifications | Yes                           | No               |
+| Complexity                | Higher                        | Lower            |
 
 ## Decision
 
@@ -64,7 +65,7 @@ Ground rules:
 ## `isExpired()`
 
 ```javascript
-isExpired(createdAt, now = Date.now(), expiryHours = REQUEST_EXPIRY_HOURS)
+isExpired(createdAt, (now = Date.now()), (expiryHours = REQUEST_EXPIRY_HOURS));
 ```
 
 - `createdAt` can be a `Date`, an ISO string, or epoch milliseconds.
