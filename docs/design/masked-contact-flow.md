@@ -6,11 +6,11 @@ Design for how a requester and a donor get in touch without either side ever see
 
 Nothing described here is built. Phase 1 is a static app with no backend. What exists today and what is only proposed are kept apart on purpose:
 
-| Label | Meaning |
-| ----- | ------- |
-| **Exists today** | Verifiable in the repo at the time of writing, with the file named. |
-| **Documented plan** | Already written down in `docs/PRIVACY.md`, `docs/ARCHITECTURE.md` or `docs/ROADMAP.md`, but not implemented. |
-| **Proposal** | New in this document. The Phase 2 schema is still being drafted by the maintainer, so every proposal here is a starting point for that discussion, not a decision. |
+| Label               | Meaning                                                                                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Exists today**    | Verifiable in the repo at the time of writing, with the file named.                                                                                                |
+| **Documented plan** | Already written down in `docs/PRIVACY.md`, `docs/ARCHITECTURE.md` or `docs/ROADMAP.md`, but not implemented.                                                       |
+| **Proposal**        | New in this document. The Phase 2 schema is still being drafted by the maintainer, so every proposal here is a starting point for that discussion, not a decision. |
 
 Proposals are marked **(Proposal)** in the text. Three areas are proposals in full: how contact is revealed and how it ends, message retention, and the `request_responses` table.
 
@@ -106,14 +106,14 @@ Messaging is allowed only in `accepted`. `ended` and `closed` are read-only. The
 
 "Source" is the documented rule the row follows, or "proposal" where it is new.
 
-| Step | Requester sees | Donor sees | Neither sees | Source |
-| ---- | -------------- | ---------- | ------------ | ------ |
-| Request posted | Own request in full | Blood group, units, hospital, city, needed by, time remaining | Requester phone or email | PRIVACY.md 2 and 3; requests table |
-| Donor browses | Donor first name, blood group, city, availability (what the donors list shows today) | n/a | Donor phone or email | PRIVACY.md 2; `components/DonorCard.js` |
-| Donor accepts | Donor first name, blood group, city, and that this donor accepted | That their acceptance went through | Phone, email, last name, `last_donated_on` | PRIVACY.md 2; donors table note "only first name is ever shown"; the response row is a proposal |
-| Chat open | Message bodies and timestamps from the donor | Message bodies and timestamps from the requester | Phone, email, user ids of the other side | PRIVACY.md 2; proposal |
-| Donor ends contact | That the chat is closed, and the existing messages read-only | The same, read-only | Phone, email | Proposal |
-| Request fulfilled or expired | Read-only history until retention ends | Read-only history until retention ends | Phone, email | Proposal; expiry per [Expiry and retention](#expiry-and-retention) |
+| Step                         | Requester sees                                                                       | Donor sees                                                    | Neither sees                               | Source                                                                                          |
+| ---------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| Request posted               | Own request in full                                                                  | Blood group, units, hospital, city, needed by, time remaining | Requester phone or email                   | PRIVACY.md 2 and 3; requests table                                                              |
+| Donor browses                | Donor first name, blood group, city, availability (what the donors list shows today) | n/a                                                           | Donor phone or email                       | PRIVACY.md 2; `components/DonorCard.js`                                                         |
+| Donor accepts                | Donor first name, blood group, city, and that this donor accepted                    | That their acceptance went through                            | Phone, email, last name, `last_donated_on` | PRIVACY.md 2; donors table note "only first name is ever shown"; the response row is a proposal |
+| Chat open                    | Message bodies and timestamps from the donor                                         | Message bodies and timestamps from the requester              | Phone, email, user ids of the other side   | PRIVACY.md 2; proposal                                                                          |
+| Donor ends contact           | That the chat is closed, and the existing messages read-only                         | The same, read-only                                           | Phone, email                               | Proposal                                                                                        |
+| Request fulfilled or expired | Read-only history until retention ends                                               | Read-only history until retention ends                        | Phone, email                               | Proposal; expiry per [Expiry and retention](#expiry-and-retention)                              |
 
 Before accepting, the donor sees the requester's hospital and city because PRIVACY.md principle 3 requires every request to carry them and a donor cannot meaningfully accept without them. The requester's phone number is not needed at any step of this flow, so the proposal is that the platform never sends it to the donor at all. It may still be stored for sign-in (`users.phone`).
 
@@ -149,17 +149,17 @@ A phone number tied to "this person gives blood" or "this family needs blood at 
 
 Each is a risk the design has to answer. Mitigations are proposals unless a document is named.
 
-| Abuse | Why it matters here | Proposed mitigation |
-| ----- | ------------------- | ------------------- |
-| Fake requests to harvest donors | A requester posts fake requests to get many donors chatting | Hospital and city are required (PRIVACY.md 3). Rate limit requests per user. Reports on requests (`target_type = request`). |
-| "Pay for blood" scam | PRIVACY.md 3 says RaktSetu never asks for money | Show the anti-scam notice inside the chat as well. Report action on every message. |
-| Pressure and repeated asks | A requester keeps messaging after the donor wants to stop | Donor can end contact and the requester cannot re-open it. Limit messages a requester can send before the donor first replies. |
-| Sharing a phone number in chat | Defeats masking; the other side can then call or pass it on | Open question (see below). |
-| Contacting many donors at once | One requester spams donors | Cap simultaneous open chats per request and per requester; numbers left to the maintainer. |
-| Donor harassing a requester | Abuse in the other direction | Requester can report too. Proposal: a requester can also end the thread. |
-| Reading someone else's chat | Guessing ids to read messages | Row-level security on `messages` and `request_responses` limited to the two parties. Non-guessable uuids are not a substitute for policies. |
-| Abusing the report flow to silence a donor | Mass false reports | Reports are reviewed (`reports.status`); no automatic action on a single report. |
-| Evidence disappears before review | Retention deletes a reported message | Hold messages referenced by an open report until it is reviewed (see retention). |
+| Abuse                                      | Why it matters here                                         | Proposed mitigation                                                                                                                         |
+| ------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fake requests to harvest donors            | A requester posts fake requests to get many donors chatting | Hospital and city are required (PRIVACY.md 3). Rate limit requests per user. Reports on requests (`target_type = request`).                 |
+| "Pay for blood" scam                       | PRIVACY.md 3 says RaktSetu never asks for money             | Show the anti-scam notice inside the chat as well. Report action on every message.                                                          |
+| Pressure and repeated asks                 | A requester keeps messaging after the donor wants to stop   | Donor can end contact and the requester cannot re-open it. Limit messages a requester can send before the donor first replies.              |
+| Sharing a phone number in chat             | Defeats masking; the other side can then call or pass it on | Open question (see below).                                                                                                                  |
+| Contacting many donors at once             | One requester spams donors                                  | Cap simultaneous open chats per request and per requester; numbers left to the maintainer.                                                  |
+| Donor harassing a requester                | Abuse in the other direction                                | Requester can report too. Proposal: a requester can also end the thread.                                                                    |
+| Reading someone else's chat                | Guessing ids to read messages                               | Row-level security on `messages` and `request_responses` limited to the two parties. Non-guessable uuids are not a substitute for policies. |
+| Abusing the report flow to silence a donor | Mass false reports                                          | Reports are reviewed (`reports.status`); no automatic action on a single report.                                                            |
+| Evidence disappears before review          | Retention deletes a reported message                        | Hold messages referenced by an open report until it is reviewed (see retention).                                                            |
 
 ## Expiry and retention
 
@@ -193,15 +193,15 @@ Proposal: one new table and one new column on `messages`. Names and types are il
 
 `request_responses` **(Proposal, not in ARCHITECTURE.md)**
 
-| Field | Type | Notes |
-| ----- | ---- | ----- |
-| id | uuid | |
-| request_id | uuid | FK to requests.id |
-| donor_id | uuid | FK to donors.id |
-| status | text | accepted / ended |
-| accepted_at | timestamptz | |
-| ended_at | timestamptz | Nullable; set when the donor ends contact |
-| constraint | | Unique on (request_id, donor_id) so a donor cannot accept the same request twice |
+| Field       | Type        | Notes                                                                            |
+| ----------- | ----------- | -------------------------------------------------------------------------------- |
+| id          | uuid        |                                                                                  |
+| request_id  | uuid        | FK to requests.id                                                                |
+| donor_id    | uuid        | FK to donors.id                                                                  |
+| status      | text        | accepted / ended                                                                 |
+| accepted_at | timestamptz |                                                                                  |
+| ended_at    | timestamptz | Nullable; set when the donor ends contact                                        |
+| constraint  |             | Unique on (request_id, donor_id) so a donor cannot accept the same request twice |
 
 `closed` is not stored here; it is derived from the request (fulfilled or expired), so there is no second source of truth for expiry. Whether to store it anyway is an open question.
 
