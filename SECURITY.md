@@ -29,3 +29,14 @@ authentication), the main things in scope right now are:
 
 As Phase 2 (Supabase auth, real donor data, chat) lands, this policy will be
 updated to cover authentication, data access, and messaging.
+
+## Security Headers & Content Security Policy (CSP)
+
+RaktSetu implements baseline HTTP security headers configured in `next.config.mjs`:
+
+- **Content-Security-Policy (CSP)**: Enforces restrictive source origins for scripts, styles, images, and network connections. Permits Next.js scripts/styles and OpenStreetMap tile servers (`tile.openstreetmap.org`) along with Leaflet data/blob assets.
+- **X-Content-Type-Options**: `nosniff` to prevent MIME-type confusion attacks.
+- **Referrer-Policy**: `strict-origin-when-cross-origin` to protect user privacy across external navigation.
+- **X-Frame-Options** & **frame-ancestors**: Set to `DENY` / `'none'` to safeguard against clickjacking attacks.
+- **Permissions-Policy**: Restricts unused browser features and APIs (`camera`, `microphone`, `geolocation`, `browsing-topics`).
+
