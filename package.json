@@ -13,7 +13,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
     "leaflet": "^1.9.4",
-    "next": "^16.4.5",
+    "next": "^16.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-leaflet": "^5.0.0"
@@ -21,9 +21,9 @@
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
     "eslint": "^10",
-    "eslint-config-next": "^16.4.5",
+    "eslint-config-next": "^16.4.6",
     "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.9.10",
+    "prettier": "^3.10.1",
     "tailwindcss": "^4",
     "vitest": "^4.1.12"
   }
