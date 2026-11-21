@@ -314,10 +314,60 @@
     "safetyNote": "Never pay money to anyone who contacts you online about blood. RaktSetu will never ask you for money. Confirm every request with the hospital itself.",
     "requestCta": "Post a blood request"
   },
+  "faq": {
+    "metaTitle": "FAQ — RaktSetu",
+    "metaDescription": "Answers to common questions about RaktSetu: privacy, donor phone numbers, scams, request expiry and how to contribute.",
+    "title": "Frequently asked questions",
+    "intro": "Short answers to the questions we hear most. If yours isn't here, ask on GitHub.",
+    "items": [
+      {
+        "question": "Can I find a donor on RaktSetu right now?",
+        "answer": "Not yet. RaktSetu is a Phase 1 demo: every form says \"demo mode\" and nothing you type is saved or sent. If you need blood urgently today, use the official sources on the emergency resources page."
+      },
+      {
+        "question": "Will my phone number ever be shown publicly?",
+        "answer": "No. Donor phone numbers are never shown in the interface, in an API response or in demo data. Contact happens only through in-app chat or masked contact, and only after the donor accepts the request."
+      },
+      {
+        "question": "What can other people see if I sign up as a donor?",
+        "answer": "Only your first name, blood group, city and whether you are currently available. You sign up yourself, you can pause your availability at any time, and nothing is imported from social media, WhatsApp or any other list."
+      },
+      {
+        "question": "Does RaktSetu ever ask for money?",
+        "answer": "Never. RaktSetu does not charge for blood or for a donor's contact details. If anyone asks you to pay for blood, or for a donor's number, treat it as a scam and report it."
+      },
+      {
+        "question": "How long does a blood request stay up?",
+        "answer": "Every request expires automatically {{hours}} hours after it is posted, so old or already-filled requests do not keep circulating. A request must also include a hospital name and a city."
+      },
+      {
+        "question": "Why is a donor paused after donating?",
+        "answer": "After a donation, RaktSetu marks the donor as unavailable for {{days}} days, the minimum gap it allows between donations. This is not medical advice. Ask a doctor or your nearest blood bank whether you can donate."
+      },
+      {
+        "question": "Where can I check real-time blood stock?",
+        "answer": "On the Government of India's e-RaktKosh portal. RaktSetu links out to it instead of scraping or copying its data, because e-RaktKosh is the official, live source."
+      },
+      {
+        "question": "Is the data on this site real?",
+        "answer": "No. All sample data is obviously fake, such as \"Demo Donor 1\" and the phone number \"XXXXXXXXXX\", and pages that show it carry a Demo badge or banner."
+      },
+      {
+        "question": "Can I contribute if I am new to open source?",
+        "answer": "Yes. RaktSetu welcomes beginners in frontend, backend, design, docs, translation and testing. Read CONTRIBUTING.md in the repository, pick a good first issue and ask to be assigned before you start."
+      }
+    ],
+    "moreTitle": "Need something else?",
+    "moreBody": "For urgent blood needs, see the official emergency resources. For questions about the project, open a discussion on GitHub.",
+    "emergencyLink": "Emergency resources",
+    "githubLink": "Ask on GitHub",
+    "opensInNewTab": "(opens in a new tab)"
+  },
   "footer": {
     "builtFor": "Built for Nexus Spring of Code",
     "repoLink": "View on GitHub",
-    "emergencyLink": "Emergency resources"
+    "emergencyLink": "Emergency resources",
+    "faqLink": "FAQ"
   },
   "report": {
     "button": "Report",
