@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+/* Lets components opt into `dark:` utilities, driven by <html data-theme="dark">. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-light: #fdecea;
 }
 
 @theme inline {
@@ -12,7 +16,53 @@
   --font-mono: var(--font-geist-mono);
   --color-brand: #c62828;
   --color-brand-dark: #8e1c1c;
-  --color-brand-light: #fdecea;
+  /* Via a variable (like --background) because `inline` bakes literal values into utilities. */
+  --color-brand-light: var(--brand-light);
+}
+
+/*
+ * Dark theme. Pages use plain Tailwind grays and bg-white, so instead of
+ * touching every page we remap those tokens here. Contrast (WCAG):
+ *   - white on bg-brand #c62828 stays 5.62:1, so brand fills are unchanged.
+ *   - #c62828 as *text* on a dark surface is only ~3.3:1, so brand text
+ *     switches to lighter reds (6.0:1+ on every dark surface used).
+ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #121417;
+  --foreground: #f1f3f5;
+  --brand-light: #3a1518;
+  --brand-text: #ff7070;
+  --brand-text-strong: #ffa4a4;
+
+  --color-gray-50: #1a1d22;
+  --color-gray-100: #22262d;
+  --color-gray-200: #2e333b;
+  --color-gray-300: #3d434c;
+  --color-gray-400: #6b727d;
+  --color-gray-500: #8a919c;
+  --color-gray-600: #b4bac4;
+  --color-gray-700: #cdd2da;
+  --color-gray-800: #e1e4e9;
+  --color-gray-900: #f1f3f5;
+
+  --color-green-100: #12301f;
+  --color-green-800: #86efac;
+}
+
+@layer utilities {
+  /* bg-white is a surface; --color-white itself must stay white for text-white on brand buttons. */
+  [data-theme="dark"] .bg-white {
+    background-color: var(--background);
+  }
+  [data-theme="dark"] .text-brand,
+  [data-theme="dark"] .hover\:text-brand:hover {
+    color: var(--brand-text);
+  }
+  [data-theme="dark"] .text-brand-dark,
+  [data-theme="dark"] .hover\:text-brand-dark:hover {
+    color: var(--brand-text-strong);
+  }
 }
 
 body {

@@ -17,7 +17,9 @@
     "about": "About",
     "privacy": "Privacy",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "toggleTheme": "Toggle dark theme",
+    "skipToMain": "Skip to main content"
   },
   "notFound": {
     "title": "Page not found",
@@ -108,13 +110,15 @@
       "neededBy": "Needed by",
       "contactNote": "Contact will happen through RaktSetu's masked, in-app contact — never a public phone number."
     },
+    "emergencyNote": "Need blood right now?",
+    "emergencyLink": "See official emergency resources",
     "submit": "Post Request",
     "errors": {
       "bloodGroup": "Please select a blood group.",
       "units": "Please enter at least 1 unit.",
       "hospitalName": "Hospital name is required.",
       "city": "City is required.",
-      "neededBy": "Please choose a needed-by date in the future."
+      "neededBy": "Please choose today or a future date — past dates aren't allowed."
     }
   },
   "donate": {
@@ -156,6 +160,50 @@
     "canDonateToHeader": "Can Donate To",
     "canReceiveFromHeader": "Can Receive From"
   },
+  "eligibility": {
+    "title": "Blood Donation Eligibility",
+    "introduction": "Wondering whether you can donate blood? Here are some general considerations to help you understand the donor screening process.",
+    "disclaimerTitle": "Important",
+    "disclaimer": "This information is for general awareness only and is not medical advice. RaktSetu does not determine donor eligibility. Please consult a doctor or your nearest blood bank for an individual assessment before donating blood.",
+    "guidanceTitle": "General eligibility considerations",
+    "guidanceIntroduction": "Blood bank professionals may consider several factors when assessing a prospective donor:",
+    "cards": {
+      "generalHealth": {
+        "title": "General health",
+        "description": "Donors are generally expected to be in good health and feel well on the day of donation. Inform the blood bank staff if you are unwell or recovering from an illness."
+      },
+      "medicalHistory": {
+        "title": "Medical history and medication",
+        "description": "Certain medical conditions, treatments, and medications may affect eligibility. Share your medical history and current medications honestly during screening."
+      },
+      "procedures": {
+        "title": "Recent procedures and travel",
+        "description": "Recent surgeries, medical procedures, vaccinations, or travel may be relevant to donor screening. Inform the blood bank staff about these circumstances."
+      },
+      "previousDonations": {
+        "title": "Previous donations",
+        "description": "Your previous donation dates and the type of donation may affect your eligibility. Let the blood bank staff know about your donation history."
+      }
+    },
+    "screeningTitle": "Before donating",
+    "screeningDescription": "Blood bank professionals assess prospective donors through questions about their health and medical history, physical checks, and relevant screening tests. They determine whether donation is appropriate based on the applicable guidelines and individual circumstances.",
+    "resourcesTitle": "Official resources",
+    "resourcesDescription": "For further information, refer to official blood donation resources.",
+    "resources": {
+      "eraktkosh": {
+        "name": "e-RaktKosh — Government of India",
+        "url": "https://eraktkosh.mohfw.gov.in/",
+        "description": "Government of India's blood bank management portal, providing information about blood banks and blood donation services."
+      },
+      "indianredcross": {
+        "name": "Indian Red Cross Society",
+        "url": "https://indianredcross.org/",
+        "description": "A humanitarian organisation supporting blood donation initiatives and blood bank services across India."
+      }
+    },
+    "finalNote": "Unsure about your eligibility? Do not rely solely on online information. Consult a doctor or contact your nearest blood bank for guidance."
+  },
+
   "about": {
     "title": "About RaktSetu",
     "mission": "RaktSetu exists to make finding blood in an emergency faster and safer, without exposing anyone's personal information or opening the door to scams.",
@@ -163,6 +211,36 @@
     "maintainerBody": "RaktSetu is maintained by Sai (github.com/saisiddi) as part of Nexus Spring of Code, a 45-day student open-source program.",
     "contributeTitle": "Contribute",
     "contributeBody": "RaktSetu welcomes beginners from every domain — frontend, backend, UI/UX, docs, translation and testing. See CONTRIBUTING.md in the repository to get started."
+  },
+  "auth": {
+    "comingSoon": "Coming in Phase 2. Mark your calendars.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password"
+    },
+    "signUp": {
+      "title": "Create an account",
+      "signUp": "Sign Up",
+      "submit": "Sign up",
+      "submitting": "Creating account",
+      "success": "Account created successfully. Please confirm your email, then sign back in.",
+      "haveAccount": "Already have an account?",
+      "signInLink": "Sign in"
+    },
+    "signIn": {
+      "title": "Sign in to your account",
+      "signIn": "Sign In",
+      "submit": "Sign in",
+      "submitting": "Signing in",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up"
+    },
+    "errors": {
+      "missingFields": "Please fill in all fields.",
+      "signUpFailed": "We couldn't create your account. Please try again.",
+      "signInFailed": "Incorrect email or password."
+    }
   },
   "privacy": {
     "title": "Privacy Principles",
@@ -194,8 +272,67 @@
       }
     ]
   },
+  "emergency": {
+    "metaTitle": "Emergency Blood Resources — RaktSetu",
+    "metaDescription": "Official Government of India links for finding blood in an emergency, and a checklist of what to have ready before you contact a blood bank.",
+    "title": "Emergency blood resources",
+    "intro": "In an emergency, start with the official sources below. They are run by the Government of India and are more reliable than forwarded messages or unverified posts.",
+    "resourcesTitle": "Official links",
+    "resourcesDescription": "Every link below goes to a Government of India website.",
+    "opensInNewTab": "(opens in a new tab)",
+    "resources": {
+      "eraktkosh": {
+        "name": "e-RaktKosh",
+        "url": "https://eraktkosh.mohfw.gov.in/",
+        "description": "The national blood bank portal of the Ministry of Health and Family Welfare."
+      },
+      "stock": {
+        "name": "e-RaktKosh: live blood stock",
+        "url": "https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt",
+        "description": "Search the blood stock reported by blood banks near you, by blood group and location."
+      },
+      "licensed": {
+        "name": "CDSCO: licensed blood centres",
+        "url": "https://cdsco.gov.in/opencms/opencms/en/BloodCentre/",
+        "description": "The Central Drugs Standard Control Organisation's page on blood centre licensing, including the list of licensed blood centres by state."
+      },
+      "mohfw": {
+        "name": "Ministry of Health and Family Welfare",
+        "url": "https://www.mohfw.gov.in/",
+        "description": "The Government of India's health ministry, for official health notices and services."
+      }
+    },
+    "checklistTitle": "What to have ready",
+    "checklistDescription": "Blood banks and hospitals will ask for these details. Having them together saves time.",
+    "checklist": {
+      "bloodGroup": "The patient's blood group",
+      "units": "How many units of blood are needed",
+      "hospital": "The name of the hospital and the city",
+      "requisition": "The doctor's written requisition for blood"
+    },
+    "safetyTitle": "Stay safe",
+    "safetyNote": "Never pay money to anyone who contacts you online about blood. RaktSetu will never ask you for money. Confirm every request with the hospital itself.",
+    "requestCta": "Post a blood request"
+  },
   "footer": {
     "builtFor": "Built for Nexus Spring of Code",
-    "repoLink": "View on GitHub"
+    "repoLink": "View on GitHub",
+    "emergencyLink": "Emergency resources"
+  },
+  "report": {
+    "button": "Report",
+    "labelFor": "Report {{name}}",
+    "requestTarget": "this request",
+    "reasonLabel": "Reason for reporting",
+    "reasons": {
+      "scam": "Scam — asking for money or fake urgency",
+      "spam": "Spam — irrelevant or repeated content",
+      "abuse": "Abuse — harassment or inappropriate behavior"
+    },
+    "detailsLabel": "Additional details (optional)",
+    "detailsPlaceholder": "Describe what happened...",
+    "submit": "Submit report",
+    "cancel": "Cancel",
+    "demoModeNotice": "Demo mode — reports aren't sent yet."
   }
 }

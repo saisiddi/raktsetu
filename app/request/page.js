@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { t } from "@/lib/i18n";
 import { REQUEST_EXPIRY_HOURS } from "@/lib/config";
 import AntiScamBanner from "@/components/AntiScamBanner";
+import ReportButton from "@/components/ReportButton";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -15,20 +17,45 @@ const initialForm = {
   neededBy: "",
 };
 
+function validateField(field, value) {
+  switch (field) {
+    case "bloodGroup":
+      if (!value) return t("request.errors.bloodGroup");
+      break;
+    case "units":
+      if (!value || Number(value) < 1) return t("request.errors.units");
+      break;
+    case "hospitalName":
+      if (!value.trim()) return t("request.errors.hospitalName");
+      break;
+    case "city":
+      if (!value.trim()) return t("request.errors.city");
+      break;
+    case "neededBy":
+      if (!value || value < new Date().toLocaleDateString("en-CA"))
+        return t("request.errors.neededBy");
+      break;
+  }
+  return undefined;
+}
+
 function validate(form) {
   const errors = {};
-  if (!form.bloodGroup) errors.bloodGroup = t("request.errors.bloodGroup");
-  if (!form.units || Number(form.units) < 1)
-    errors.units = t("request.errors.units");
-  if (!form.hospitalName.trim())
-    errors.hospitalName = t("request.errors.hospitalName");
-  if (!form.city.trim()) errors.city = t("request.errors.city");
-  if (
-    !form.neededBy ||
-    new Date(form.neededBy) < new Date().setHours(0, 0, 0, 0)
-  )
-    errors.neededBy = t("request.errors.neededBy");
+  for (const field of Object.keys(initialForm)) {
+    const err = validateField(field, form[field]);
+    if (err) errors[field] = err;
+  }
   return errors;
+}
+
+function setFieldError(setErrors, field, value) {
+  const err = validateField(field, value);
+  setErrors((prev) => {
+    const next = { ...prev };
+    if (err) next[field] = err;
+    else delete next[field];
+    return next;
+  });
 }
 
 export default function RequestPage() {
@@ -37,7 +64,16 @@ export default function RequestPage() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleChange(field) {
-    return (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
+    return (e) => {
+      const value = e.target.value;
+      setForm((f) => ({ ...f, [field]: value }));
+      if (!(field in errors)) return;
+      setFieldError(setErrors, field, value);
+    };
+  }
+
+  function handleBlur(field) {
+    return () => setFieldError(setErrors, field, form[field]);
   }
 
   function handleSubmit(e) {
@@ -54,6 +90,16 @@ export default function RequestPage() {
       <h1 className="text-3xl font-bold text-gray-900">{t("request.title")}</h1>
       <p className="mt-2 text-gray-700">{t("request.subtitle")}</p>
 
+      <p className="mt-2 text-sm text-gray-700">
+        {t("request.emergencyNote")}{" "}
+        <Link
+          href="/emergency"
+          className="font-medium text-brand-dark underline focus:outline-2 focus:outline-offset-2 focus:outline-brand"
+        >
+          {t("request.emergencyLink")}
+        </Link>
+      </p>
+
       <p className="mt-4 text-sm font-medium text-gray-700">
         {t("request.expiryNotice", { hours: REQUEST_EXPIRY_HOURS })}
       </p>
@@ -63,6 +109,10 @@ export default function RequestPage() {
           title={t("home.antiScam.title")}
           body={t("request.antiScamWarning")}
         />
+      </div>
+
+      <div className="mt-4 flex justify-end">
+        <ReportButton targetName={t("report.requestTarget")} />
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
@@ -77,6 +127,7 @@ export default function RequestPage() {
             id="bloodGroup"
             value={form.bloodGroup}
             onChange={handleChange("bloodGroup")}
+            onBlur={handleBlur("bloodGroup")}
             aria-invalid={Boolean(errors.bloodGroup)}
             aria-describedby={
               errors.bloodGroup ? "bloodGroup-error" : undefined
@@ -110,6 +161,7 @@ export default function RequestPage() {
             min="1"
             value={form.units}
             onChange={handleChange("units")}
+            onBlur={handleBlur("units")}
             aria-invalid={Boolean(errors.units)}
             aria-describedby={errors.units ? "units-error" : undefined}
             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
@@ -133,6 +185,7 @@ export default function RequestPage() {
             type="text"
             value={form.hospitalName}
             onChange={handleChange("hospitalName")}
+            onBlur={handleBlur("hospitalName")}
             aria-invalid={Boolean(errors.hospitalName)}
             aria-describedby={
               errors.hospitalName ? "hospitalName-error" : undefined
@@ -158,6 +211,7 @@ export default function RequestPage() {
             type="text"
             value={form.city}
             onChange={handleChange("city")}
+            onBlur={handleBlur("city")}
             aria-invalid={Boolean(errors.city)}
             aria-describedby={errors.city ? "city-error" : undefined}
             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
@@ -181,6 +235,7 @@ export default function RequestPage() {
             type="date"
             value={form.neededBy}
             onChange={handleChange("neededBy")}
+            onBlur={handleBlur("neededBy")}
             aria-invalid={Boolean(errors.neededBy)}
             aria-describedby={errors.neededBy ? "neededBy-error" : undefined}
             className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"

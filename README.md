@@ -20,7 +20,7 @@
 
 <p align="center">
   <!-- Update this once deployed: -->
-  <a href="https://raktsetu.vercel.app"><strong>Live Demo</strong></a> ·
+  <a href="https://raktsetu-three.vercel.app"><strong>Live Demo</strong></a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="./CONTRIBUTING.md">Contribute</a> ·
   <a href="./docs/ROADMAP.md">Roadmap</a> ·
@@ -132,10 +132,17 @@ RaktSetu is built around six rules that are **not up for debate**. The full deta
 
 ## Screenshots
 
-<!-- Add screenshots here once the UI is deployed, e.g.: -->
-<!-- ![Home page](./docs/screenshots/home.png) -->
+![Home page: hero section and the three main actions](./docs/screenshots/home.webp)
 
-_Screenshots coming soon — the [live demo](https://raktsetu.vercel.app) is the best preview for now._
+![Blood banks page in map view, with demo blood banks marked on the map](./docs/screenshots/blood-banks-map.webp)
+
+![Urgent blood request form](./docs/screenshots/request-blood.webp)
+
+![Demo donors list showing first name, blood group, city and availability](./docs/screenshots/donors.webp)
+
+![Blood group compatibility chart](./docs/screenshots/blood-compatibility.webp)
+
+![Blood banks page on a phone-sized screen](./docs/screenshots/mobile-blood-banks.webp)
 
 ## Tech stack
 
@@ -171,6 +178,32 @@ npm run lint      # ESLint
 npm run format    # Prettier
 npm run build     # production build
 ```
+
+### Enable Supabase auth
+
+To integrate Supabase:
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. In the project dashboard's **Get Connected** section, click on **Framework**. In the pop-up that appears, keep the default selections and copy the `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` values it shows into your .env.local file.
+
+3. Alternatively, in the project dashboard, open **Project Settings → API Keys** and copy the project URL and the **publishable key** (`sb_publishable_...`). Older projects may call this the `anon` key; it goes in the same variable.
+
+4. Copy the example env file and fill in the two values:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=https://<your-project>.supabase.co
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+   ```
+
+Notes:
+
+- Only the publishable key belongs in the app. Secret keys (formerly `service_role`) bypass Row Level Security and must never go in a `NEXT_PUBLIC_` variable or client-side code.
+- Supabase's built-in email sender is heavily rate-limited, so repeated test sign-ups can fail with `over_email_send_rate_limit` (HTTP 429). For local testing, turn off "Confirm email" for the Email provider in the project's Authentication settings, or configure custom SMTP.
+- Use throwaway accounts when testing, not real personal data.
 
 ## Project structure
 
