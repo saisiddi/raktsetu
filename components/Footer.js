@@ -19,6 +19,12 @@ export default function Footer() {
           >
             {t("footer.emergencyLink")}
           </Link>
+          <Link
+            href="/faq"
+            className="font-medium text-brand hover:text-brand-dark focus:outline-2 focus:outline-offset-2 focus:outline-brand"
+          >
+            {t("footer.faqLink")}
+          </Link>
           <a
             href={t("site.repoUrl")}
             target="_blank"
