@@ -248,15 +248,16 @@ The full process — commit conventions, branch naming, what gets closed as spam
   <a href="https://github.com/saisiddi/raktsetu/forks"><img alt="Forks" src="https://img.shields.io/github/forks/saisiddi/raktsetu?color=c62828"></a>
 </p>
 
-Snapshot as of 27 October 2026, about three weeks after launch:
+Snapshot as of 21 November 2026, about six weeks after launch:
 
-| What                                                         | Count |
-| ------------------------------------------------------------ | ----- |
-| Contributors who commented, claimed an issue, or opened a PR | 9     |
-| Contributor pull requests opened                             | 7     |
-| Contributor pull requests merged (the rest are in review)    | 5     |
-| Starter issues claimed and assigned (of 25)                  | 10    |
-| Starter issues already closed                                | 5     |
+| What                                        | Count |
+| ------------------------------------------- | ----- |
+| Contributors who have opened a pull request | 17    |
+| Contributor pull requests opened            | 29    |
+| Contributor pull requests merged            | 23    |
+| Contributor pull requests in review         | 6     |
+| Issues currently assigned to a contributor  | 13    |
+| Issues closed                               | 23    |
 
 Thank you to everyone who has shown up. If you want to join them, pick a [`good first issue`](https://github.com/saisiddi/raktsetu/labels/good%20first%20issue) and comment to get assigned.
 
