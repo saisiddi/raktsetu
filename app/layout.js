@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://raktsetu.vercel.app"),
+  metadataBase: new URL("https://raktsetu-three.vercel.app"),
   title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
   description:
     "Find nearby blood banks, post verified urgent blood requests, and connect with opt-in donors through masked, in-app contact.",
   openGraph: {
     type: "website",
-    url: "https://raktsetu.vercel.app",
+    url: "https://raktsetu-three.vercel.app",
     siteName: "RaktSetu",
     locale: "en_US",
     title: "RaktSetu — Privacy-first blood donor & recipient connect platform",
