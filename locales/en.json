@@ -209,7 +209,8 @@
       "fields": {
         "age": "Age (years)",
         "weight": "Body weight (kg)",
-        "lastDonation": "Date of your last blood donation (leave empty if you have never donated)"
+        "lastDonation": "Date of your last blood donation (leave empty if you have never donated)",
+        "sex": "Sex (needed only if you entered a date, the waiting period differs)"
       },
       "questions": {
         "unwell": "Do you feel unwell today, for example a cold, cough, headache or other pain?",
@@ -222,12 +223,18 @@
         "yes": "Yes",
         "no": "No"
       },
+      "sexOptions": {
+        "male": "Male",
+        "female": "Female",
+        "unsaid": "Prefer not to say (uses the longer waiting period)"
+      },
       "submit": "Check",
       "errors": {
         "age": "Enter your age in whole years.",
         "weight": "Enter your weight in kilograms.",
         "lastDonation": "Enter a complete date that is not in the future, or leave it empty.",
-        "answer": "Choose Yes or No."
+        "answer": "Choose Yes or No.",
+        "sex": "Choose an option so the waiting period can be worked out."
       },
       "result": {
         "mayBeEligible": "You may be eligible",

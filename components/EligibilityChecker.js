@@ -2,9 +2,9 @@
 
 import { useState, useSyncExternalStore } from "react";
 import { t } from "@/lib/i18n";
-import { DONATION_GAP_DAYS } from "@/lib/config";
 import {
   HEALTH_QUESTIONS,
+  SEX_OPTIONS,
   checkEligibility,
   validateAnswers,
 } from "@/lib/eligibility";
@@ -14,7 +14,13 @@ const NUMBER_FIELDS = [
   { name: "weight", quotes: "weight", inputMode: "decimal" },
 ];
 
-const FIELD_ORDER = ["age", "weight", "lastDonation", ...HEALTH_QUESTIONS];
+const FIELD_ORDER = [
+  "age",
+  "weight",
+  "lastDonation",
+  "sex",
+  ...HEALTH_QUESTIONS,
+];
 
 const SOURCES = ["gazette", "eraktkosh"];
 
@@ -163,6 +169,32 @@ export default function EligibilityChecker() {
           <Quote id="lastDonation-quote" name="interval" />
         </div>
 
+        <fieldset>
+          <legend className="text-sm font-medium text-gray-700">
+            {t("eligibility.checker.fields.sex")}
+          </legend>
+          <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+            {SEX_OPTIONS.map((option) => (
+              <label
+                key={option}
+                className="flex items-center gap-2 text-sm text-gray-700"
+              >
+                <input
+                  type="radio"
+                  name="sex"
+                  value={option}
+                  checked={answers.sex === option}
+                  onChange={handleChange}
+                  aria-describedby={errors.sex ? "sex-error" : undefined}
+                  className="h-4 w-4 accent-brand focus:outline-2 focus:outline-offset-2 focus:outline-brand"
+                />
+                {t(`eligibility.checker.sexOptions.${option}`)}
+              </label>
+            ))}
+          </div>
+          <FieldError field="sex" error={errors.sex} />
+        </fieldset>
+
         {HEALTH_QUESTIONS.map((question) => (
           <fieldset key={question}>
             <legend className="text-sm font-medium text-gray-700">
@@ -232,7 +264,7 @@ export default function EligibilityChecker() {
               <>
                 <p className="mt-3 text-sm font-medium text-gray-900">
                   {t("eligibility.checker.result.nextDate", {
-                    days: DONATION_GAP_DAYS,
+                    days: result.gapDays,
                     date: formatDate(result.nextEligibleDate),
                   })}
                 </p>
