@@ -1,4 +1,5 @@
 import { t } from "@/lib/i18n";
+import EligibilityChecker from "@/components/EligibilityChecker";
 
 export const metadata = {
   title: "Blood Donation Eligibility — RaktSetu",
@@ -28,6 +29,8 @@ export default function EligibilityPage() {
           {t("eligibility.disclaimer")}
         </p>
       </section>
+
+      <EligibilityChecker />
 
       <section className="mt-8">
         <h2 className="text-xl font-bold text-gray-900">
