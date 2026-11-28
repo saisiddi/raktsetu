@@ -6,6 +6,8 @@ import { t } from "@/lib/i18n";
 import { REQUEST_EXPIRY_HOURS } from "@/lib/config";
 import AntiScamBanner from "@/components/AntiScamBanner";
 import ReportButton from "@/components/ReportButton";
+import TextField from "@/components/form/TextField";
+import SelectField from "@/components/form/SelectField";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -116,136 +118,54 @@ export default function RequestPage() {
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
-        <div>
-          <label
-            htmlFor="bloodGroup"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("request.fields.bloodGroup")}
-          </label>
-          <select
-            id="bloodGroup"
-            value={form.bloodGroup}
-            onChange={handleChange("bloodGroup")}
-            onBlur={handleBlur("bloodGroup")}
-            aria-invalid={Boolean(errors.bloodGroup)}
-            aria-describedby={
-              errors.bloodGroup ? "bloodGroup-error" : undefined
-            }
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          >
-            <option value="">—</option>
-            {BLOOD_GROUPS.map((group) => (
-              <option key={group} value={group}>
-                {group}
-              </option>
-            ))}
-          </select>
-          {errors.bloodGroup && (
-            <p id="bloodGroup-error" className="mt-1 text-sm text-brand-dark">
-              {errors.bloodGroup}
-            </p>
-          )}
-        </div>
+        <SelectField
+          id="bloodGroup"
+          label={t("request.fields.bloodGroup")}
+          options={BLOOD_GROUPS}
+          value={form.bloodGroup}
+          onChange={handleChange("bloodGroup")}
+          onBlur={handleBlur("bloodGroup")}
+          error={errors.bloodGroup}
+        />
 
-        <div>
-          <label
-            htmlFor="units"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("request.fields.units")}
-          </label>
-          <input
-            id="units"
-            type="number"
-            min="1"
-            value={form.units}
-            onChange={handleChange("units")}
-            onBlur={handleBlur("units")}
-            aria-invalid={Boolean(errors.units)}
-            aria-describedby={errors.units ? "units-error" : undefined}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          />
-          {errors.units && (
-            <p id="units-error" className="mt-1 text-sm text-brand-dark">
-              {errors.units}
-            </p>
-          )}
-        </div>
+        <TextField
+          id="units"
+          label={t("request.fields.units")}
+          type="number"
+          min="1"
+          value={form.units}
+          onChange={handleChange("units")}
+          onBlur={handleBlur("units")}
+          error={errors.units}
+        />
 
-        <div>
-          <label
-            htmlFor="hospitalName"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("request.fields.hospitalName")}
-          </label>
-          <input
-            id="hospitalName"
-            type="text"
-            value={form.hospitalName}
-            onChange={handleChange("hospitalName")}
-            onBlur={handleBlur("hospitalName")}
-            aria-invalid={Boolean(errors.hospitalName)}
-            aria-describedby={
-              errors.hospitalName ? "hospitalName-error" : undefined
-            }
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          />
-          {errors.hospitalName && (
-            <p id="hospitalName-error" className="mt-1 text-sm text-brand-dark">
-              {errors.hospitalName}
-            </p>
-          )}
-        </div>
+        <TextField
+          id="hospitalName"
+          label={t("request.fields.hospitalName")}
+          value={form.hospitalName}
+          onChange={handleChange("hospitalName")}
+          onBlur={handleBlur("hospitalName")}
+          error={errors.hospitalName}
+        />
 
-        <div>
-          <label
-            htmlFor="city"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("request.fields.city")}
-          </label>
-          <input
-            id="city"
-            type="text"
-            value={form.city}
-            onChange={handleChange("city")}
-            onBlur={handleBlur("city")}
-            aria-invalid={Boolean(errors.city)}
-            aria-describedby={errors.city ? "city-error" : undefined}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          />
-          {errors.city && (
-            <p id="city-error" className="mt-1 text-sm text-brand-dark">
-              {errors.city}
-            </p>
-          )}
-        </div>
+        <TextField
+          id="city"
+          label={t("request.fields.city")}
+          value={form.city}
+          onChange={handleChange("city")}
+          onBlur={handleBlur("city")}
+          error={errors.city}
+        />
 
-        <div>
-          <label
-            htmlFor="neededBy"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("request.fields.neededBy")}
-          </label>
-          <input
-            id="neededBy"
-            type="date"
-            value={form.neededBy}
-            onChange={handleChange("neededBy")}
-            onBlur={handleBlur("neededBy")}
-            aria-invalid={Boolean(errors.neededBy)}
-            aria-describedby={errors.neededBy ? "neededBy-error" : undefined}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          />
-          {errors.neededBy && (
-            <p id="neededBy-error" className="mt-1 text-sm text-brand-dark">
-              {errors.neededBy}
-            </p>
-          )}
-        </div>
+        <TextField
+          id="neededBy"
+          label={t("request.fields.neededBy")}
+          type="date"
+          value={form.neededBy}
+          onChange={handleChange("neededBy")}
+          onBlur={handleBlur("neededBy")}
+          error={errors.neededBy}
+        />
 
         <p className="text-sm text-gray-600">
           {t("request.fields.contactNote")}

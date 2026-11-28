@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { t } from "@/lib/i18n";
 import { DONATION_GAP_DAYS } from "@/lib/config";
+import TextField from "@/components/form/TextField";
+import SelectField from "@/components/form/SelectField";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -54,82 +56,30 @@ export default function DonatePage() {
       </p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("donate.fields.name")}
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={form.name}
-            onChange={handleChange("name")}
-            aria-invalid={Boolean(errors.name)}
-            aria-describedby={errors.name ? "name-error" : undefined}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          />
-          {errors.name && (
-            <p id="name-error" className="mt-1 text-sm text-brand-dark">
-              {errors.name}
-            </p>
-          )}
-        </div>
+        <TextField
+          id="name"
+          label={t("donate.fields.name")}
+          value={form.name}
+          onChange={handleChange("name")}
+          error={errors.name}
+        />
 
-        <div>
-          <label
-            htmlFor="bloodGroup"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("donate.fields.bloodGroup")}
-          </label>
-          <select
-            id="bloodGroup"
-            value={form.bloodGroup}
-            onChange={handleChange("bloodGroup")}
-            aria-invalid={Boolean(errors.bloodGroup)}
-            aria-describedby={
-              errors.bloodGroup ? "bloodGroup-error" : undefined
-            }
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          >
-            <option value="">—</option>
-            {BLOOD_GROUPS.map((group) => (
-              <option key={group} value={group}>
-                {group}
-              </option>
-            ))}
-          </select>
-          {errors.bloodGroup && (
-            <p id="bloodGroup-error" className="mt-1 text-sm text-brand-dark">
-              {errors.bloodGroup}
-            </p>
-          )}
-        </div>
+        <SelectField
+          id="bloodGroup"
+          label={t("donate.fields.bloodGroup")}
+          options={BLOOD_GROUPS}
+          value={form.bloodGroup}
+          onChange={handleChange("bloodGroup")}
+          error={errors.bloodGroup}
+        />
 
-        <div>
-          <label
-            htmlFor="city"
-            className="block text-sm font-medium text-gray-700"
-          >
-            {t("donate.fields.city")}
-          </label>
-          <input
-            id="city"
-            type="text"
-            value={form.city}
-            onChange={handleChange("city")}
-            aria-invalid={Boolean(errors.city)}
-            aria-describedby={errors.city ? "city-error" : undefined}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-2 focus:outline-offset-2 focus:outline-brand"
-          />
-          {errors.city && (
-            <p id="city-error" className="mt-1 text-sm text-brand-dark">
-              {errors.city}
-            </p>
-          )}
-        </div>
+        <TextField
+          id="city"
+          label={t("donate.fields.city")}
+          value={form.city}
+          onChange={handleChange("city")}
+          error={errors.city}
+        />
 
         <div className="flex items-center gap-2">
           <input
