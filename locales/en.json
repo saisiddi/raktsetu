@@ -201,7 +201,105 @@
         "description": "A humanitarian organisation supporting blood donation initiatives and blood bank services across India."
       }
     },
-    "finalNote": "Unsure about your eligibility? Do not rely solely on online information. Consult a doctor or contact your nearest blood bank for guidance."
+    "finalNote": "Unsure about your eligibility? Do not rely solely on online information. Consult a doctor or contact your nearest blood bank for guidance.",
+    "checker": {
+      "title": "Quick self-check",
+      "intro": "Answer a few questions to get a rough idea before you visit a blood bank. It is for whole blood donation. Your answers stay in your browser, nothing is saved or sent.",
+      "disclaimer": "This is only an estimate. Final eligibility is decided by the blood bank / medical staff.",
+      "fields": {
+        "age": "Age (years)",
+        "weight": "Body weight (kg)",
+        "lastDonation": "Date of your last blood donation (leave empty if you have never donated)",
+        "sex": "Sex (needed only if you entered a date, the waiting period differs)"
+      },
+      "questions": {
+        "unwell": "Do you feel unwell today, for example a cold, cough, headache or other pain?",
+        "antibiotics": "Are you on antibiotics, or still inside the period quoted below?",
+        "tattoo": "Have you or your spouse/partner had a tattoo, piercing, acupuncture or similar procedure within the period quoted below?",
+        "surgery": "Have you had surgery within the periods quoted below?",
+        "pregnancy": "Does any of the lines below about pregnancy, abortion, breast feeding or menstruation apply to you now? Answer No if they do not apply to you."
+      },
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "sexOptions": {
+        "male": "Male",
+        "female": "Female",
+        "unsaid": "Prefer not to say (uses the longer waiting period)"
+      },
+      "submit": "Check",
+      "errors": {
+        "age": "Enter your age in whole years.",
+        "weight": "Enter your weight in kilograms.",
+        "lastDonation": "Enter a complete date that is not in the future, or leave it empty.",
+        "answer": "Choose Yes or No.",
+        "sex": "Choose an option so the waiting period can be worked out."
+      },
+      "result": {
+        "mayBeEligible": "You may be eligible",
+        "wait": "Please wait / speak to a doctor",
+        "reasonsTitle": "Based on your answers about:",
+        "nextDate": "Next eligible date (estimate): {{date}}, counted as {{days}} days after your last donation.",
+        "limits": "This check looks at only a few of the official criteria. The blood bank screens for many more."
+      },
+      "reasons": {
+        "age": "Age",
+        "firstTimeAge": "Age, as a first-time donor",
+        "weight": "Body weight",
+        "donationGap": "Time since your last donation",
+        "unwell": "How you feel today",
+        "antibiotics": "Antibiotics",
+        "tattoo": "Tattoo, piercing, acupuncture or similar procedure",
+        "surgery": "Surgery",
+        "pregnancy": "Pregnancy, abortion, breast feeding or menstruation"
+      },
+      "sourcesIntro": "Quoted lines come from \"Criteria for Blood Donation\" in the Drugs and Cosmetics (Second Amendment) Rules, 2020, G.S.R. 166(E). Table rows are shown as condition: criteria.",
+      "sources": {
+        "gazette": {
+          "name": "Official gazette notification (CDSCO, PDF)",
+          "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadBloodBank/Guidelines_for_blood_bank-merged-with-GSR-166E-dated-11.03.2020.pdf"
+        },
+        "eraktkosh": {
+          "name": "e-RaktKosh: before you donate",
+          "url": "https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/donateblood.cnt"
+        }
+      },
+      "quotes": {
+        "age": [
+          "Minimum age 18 years",
+          "Maximum age 65 years",
+          "First time donor shall not be over 60 years of age, for repeat donor upper limit is 65 years."
+        ],
+        "weight": [
+          "Whole Blood Volume Collected and weight of donor: 350 ml- 45 kg",
+          "450ml- more than 55 kg"
+        ],
+        "interval": [
+          "For whole blood donation, once in three months (90 days) for males and four months (120 days) for females."
+        ],
+        "unwell": [
+          "Minor non-specific symptoms including but not limited to general malaise, pain, headache: Defer until all symptoms subside and donor is afebrile",
+          "Cold, flu, cough, sore throat or acute sinusitis: Defer until all symptoms subside and donor is afebrile"
+        ],
+        "antibiotics": [
+          "Antibiotics: Defer for 2 Weeks after last dose if donor is well"
+        ],
+        "tattoo": [
+          "At risk for hepatitis by tattoos, acupuncture or body piercing, scarification and any other invasive cosmetic procedure by self or spouse/ partner: Defer for 12 months"
+        ],
+        "surgery": [
+          "Major surgery: Defer for 12 months after recovery. (Major surgery being defined as that requiring hospitalisation, anaesthesia (general/spinal) had Blood Transfusion and/or had significant Blood loss)",
+          "Minor surgery: Defer for 6 months after recovery"
+        ],
+        "pregnancy": [
+          "Pregnancy or recently delivered: Defer for 12 Months after delivery",
+          "Abortion: Defer for 6 months after abortion",
+          "Breast feeding: Defer for total period of lactation",
+          "Menstruation: Defer for the period of menstruation"
+        ]
+      }
+    }
   },
 
   "about": {

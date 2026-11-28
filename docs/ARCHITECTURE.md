@@ -19,7 +19,7 @@ components/            Reusable UI (Navbar, Footer, cards, forms' subparts)
 data/                  Static demo JSON (blood-banks.demo.json, donors.demo.json)
 lib/
   i18n.js              t(key, vars) — dot-notation lookup + {{var}} interpolation
-  config.js            REQUEST_EXPIRY_HOURS, DONATION_GAP_DAYS, FOUNDING_YEAR
+  config.js            REQUEST_EXPIRY_HOURS, DONATION_GAP_DAYS(_FEMALE), FOUNDING_YEAR
 locales/
   en.json              All UI strings (source of truth for translators)
 ```
